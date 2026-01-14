@@ -5,10 +5,14 @@ import { defineConfig } from "prisma/config";
 
 export default defineConfig({
   schema: "prisma/schema.prisma",
-  migrations: {
-    path: "prisma/migrations",
+
+  migrate: {
+    datasource: "db",
   },
-  datasource: {
-    url: process.env["DATABASE_URL"],
+
+  datasources: {
+    db: {
+      url: process.env.DATABASE_URL!,
+    },
   },
 });
